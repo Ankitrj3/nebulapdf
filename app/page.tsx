@@ -1,7 +1,10 @@
 import React from 'react'
-import HeroSection from '@/components/home/hero-section'
-import DemoSection from '@/components/home/demo-section'
-import HowItWorkSection from '@/components/home/how-it-work-section'
+import dynamic from 'next/dynamic'
+
+const HeroSection = dynamic(() => import('@/components/home/hero-section'))
+const DemoSection = dynamic(() => import('@/components/home/demo-section'))
+const HowItWorkSection = dynamic(() => import('@/components/home/how-it-work-section'))
+
 export default function Home() {
   return (
     <main>
