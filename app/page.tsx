@@ -1,12 +1,11 @@
-import { Button } from '@/components/ui/button'
 import React from 'react'
+import HeroSection from '@/components/home/hero-section'
 
-type Props = {}
 
-const Home = (props: Props) => {
+export default function Home() {
   return (
-    <div> <Button variant="outline" className='bg-blue-500 text-white ' >Click me</Button></div>
+    <main>
+      <HeroSection />
+    </main>
   )
 }
-
-export default Home;
