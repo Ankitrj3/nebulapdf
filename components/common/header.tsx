@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FileText, Wifi, WifiOff } from "lucide-react";
 import NavLink from "./nav-link";
+import config from "@/config";
 
 function Header() {
   const [isConnected, setIsConnected] = useState(true);
@@ -11,8 +12,11 @@ function Header() {
   useEffect(() => {
     const checkServerConnection = async () => {
       try {
+        console.log('Current API URL:', config.apiUrl);
+        console.log('Environment:', process.env.NODE_ENV);
         console.log('Checking server connection...');
-        const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/health', {
+        
+        const response = await fetch(`${config.apiUrl}/health`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',

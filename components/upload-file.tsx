@@ -21,6 +21,7 @@ import { useCallback, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import { Upload, FileText, X, Sparkles, Copy, Check } from "lucide-react"
 import { toast } from "sonner"
+import config from "@/config"
 
 export function UploadFile() {
   const [file, setFile] = useState<File | null>(null)
@@ -56,9 +57,10 @@ export function UploadFile() {
     }
 
     try {
+      console.log('Current API URL:', config.apiUrl);
       console.log('Sending summary request with URL:', url)
       
-      const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/public/pdf', {
+      const res = await fetch(`${config.apiUrl}/public/pdf`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +79,6 @@ export function UploadFile() {
       console.log('Summary response:', data)
       setSummary(data.body)
       
-      // Show success toast for summary
       toast.success('Summary generated!', {
         description: 'Your PDF has been processed successfully.',
         duration: 3000,
@@ -87,7 +88,6 @@ export function UploadFile() {
       console.error('Summary error:', error)
       const errorMessage = error instanceof Error ? error.message : 'Failed to generate summary'
       
-      // Show error toast for summary
       toast.error('Summary failed', {
         description: errorMessage,
         duration: 4000,
@@ -103,10 +103,11 @@ export function UploadFile() {
     setUploadError(null)
 
     try {
+      console.log('Current API URL:', config.apiUrl);
       const formData = new FormData()
       formData.append('file', file)
 
-      const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/upload/file', {
+      const response = await fetch(`${config.apiUrl}/api/upload/file`, {
         method: 'POST',
         body: formData,
         headers: {
@@ -119,33 +120,28 @@ export function UploadFile() {
       }
 
       const data = await response.json()
-      console.log('Upload response:', data) // Log the upload response
+      console.log('Upload response:', data)
       
-      // Make sure we have a valid URL from the response
       if (!data.url) {
         throw new Error('No URL received from upload')
       }
 
-      // Show success toast
       toast.success('PDF uploaded successfully!', {
         description: 'Please wait while we process your file.',
         duration: 3000,
         className: 'bg-emerald-50 text-emerald-900 border-emerald-200',
       })
 
-      // Wait a moment before requesting the summary
       setTimeout(() => {
         handleSummary(data.url)
       }, 1000)
       
-      // Clear the file after successful upload
       setFile(null)
     } catch (error) {
       console.error('Upload error:', error)
       const errorMessage = error instanceof Error ? error.message : 'Upload failed'
       setUploadError(errorMessage)
       
-      // Show error toast
       toast.error('Upload failed', {
         description: errorMessage,
         duration: 4000,
