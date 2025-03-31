@@ -11,7 +11,7 @@ const development: Config = {
 }
 
 const production: Config = {
-  apiUrl: process.env.NEXT_PUBLIC_API_URL || 'https://nebulapdf-backend.onrender.com'
+  apiUrl: process.env.NEXT_PUBLIC_API_URL || ''
 }
 
 // Use production config if we're in production or if NEXT_PUBLIC_API_URL is set
