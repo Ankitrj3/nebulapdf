@@ -23,12 +23,7 @@ function HeroSection() {
             <h2 className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
                 Summarize your PDFs with NebulaPDF within seconds
             </h2>
-            <Button size="lg" className="mt-8 rounded-full bg-gradient-to-r from-slate-900 to-rose-500 hover:from-rose-600 hover:to-slate-900 text-white font-bold shadow-lg transition-all duration-300">
-                <Link href="/#pricing" className="flex items-center">
-                    Try NebulaPDF
-                    <ArrowRight className='w-4 h-4 ml-2' />
-                </Link>
-            </Button>
+            
         </div>
      </section>
   )
