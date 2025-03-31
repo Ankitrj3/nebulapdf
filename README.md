@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NebulaPDF - AI-Powered PDF Summarizer
 
-## Getting Started
+A modern web application that allows users to upload PDF files and generate AI-powered summaries using Google's Gemini API. Built with Next.js, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## 🌟 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+[View Live Demo](https://nebulapdf.vercel.app/)
+
+## 🚀 Features
+
+- 📄 PDF file upload with drag-and-drop support
+- 🤖 AI-powered PDF summarization using Google Gemini API
+- 🎨 Modern and responsive UI with Tailwind CSS
+- 📱 Mobile-friendly design
+- 🔄 Real-time upload progress and status updates
+- 📋 Copy-to-clipboard functionality for summaries
+- 🎯 Error handling and user feedback
+
+## 🛠️ Technologies Used
+
+### Frontend
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Shadcn UI Components
+- React Dropzone
+- Sonner (Toast notifications)
+
+### Backend
+- Spring Boot
+- Java 17
+- AWS S3 for file storage
+- PDF.co API for PDF processing
+- Google Gemini API for text summarization
+
+## 🔌 APIs Used
+
+1. **Google Gemini API**
+   - Used for generating intelligent summaries of PDF content
+   - Provides natural language understanding and text generation capabilities
+
+2. **PDF.co API**
+   - Handles PDF file processing and text extraction
+   - Converts PDF documents to text format
+
+3. **AWS S3**
+   - Stores uploaded PDF files securely
+   - Provides scalable cloud storage solution
+
+## 🏗️ Project Structure
+
+```
+nebulapdf/
+├── components/
+│   ├── common/
+│   ├── home/
+│   └── ui/
+├── config/
+├── lib/
+├── public/
+└── styles/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Backend Integration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project is integrated with a Spring Boot backend repository: [nebulapdf-endPoint](https://github.com/Ankitrj3/nebulapdf-endPoint)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Backend Features
+- RESTful API endpoints
+- File upload handling
+- PDF processing
+- AI summarization
+- AWS S3 integration
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+```bash
+git clone https://github.com/ankitrj3/nebulapdf.git
+cd nebulapdf
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Create a `.env.local` file in the root directory:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
 
-## Deploy on Vercel
+4. Run the development server:
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔑 Environment Variables
+
+Create a `.env.local` file with the following variables:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+ 
+## 👥 Authors
+
+- Ankit Ranjan - [GitHub](https://github.com/Ankitrj3)
+
+## 🙏 Acknowledgments
+
+- [Shadcn UI](https://ui.shadcn.com/) for the beautiful components
+- [Tailwind CSS](https://tailwindcss.com/) for the styling
+- [Next.js](https://nextjs.org/) for the framework
+- [Spring Boot](https://spring.io/projects/spring-boot) for the backend
+- [AWS](https://aws.amazon.com/) for cloud services
+- [Google Gemini](https://ai.google.dev/) for AI capabilities
