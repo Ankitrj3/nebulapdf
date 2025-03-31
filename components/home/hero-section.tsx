@@ -1,31 +1,28 @@
+'use client'
 import React from 'react'
-import { Button } from '../ui/button'
-import { Sparkles, ArrowRight } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import Link from 'next/link'
+import { UploadFile } from '../upload-file'
 
-function HeroSection() {
+export function HeroSection() {
   return (
-     <section className="py-20 px-6">
-        <div className="container mx-auto text-center space-y-6">
-            <Badge variant="outline" className="mb-4 bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 transition-all duration-1000 animate-pulse px-4 py-2">
-                <Sparkles className='w-4 h-4 mr-2 text-white animate-spin-slow' />
-                <p className='text-white font-medium'>Powered by AI</p>
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                Transform PDF into{' '}
-                <span className="relative inline-block">
-                    <span className="relative z-10">concise</span>
-                    <span className="absolute inset-0 bg-rose-200/50 -rotate-2 rounded-lg transform -skew-y-1"></span>
-                </span>{' '}
-                Summaries
-            </h1>
-            <h2 className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
-                Summarize your PDFs with NebulaPDF within seconds
-            </h2>
-            
+    <div className="relative isolate overflow-hidden bg-gradient-to-b from-rose-100/20">
+      <div className="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
+        <div className="px-6 lg:px-0 lg:pt-4">
+          <div className="mx-auto max-w-2xl">
+            <div className="max-w-lg">
+              <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                Transform Your PDFs with AI
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Upload your PDF files and get instant summaries, insights, and analysis powered by advanced AI technology.
+              </p>
+              <div className="mt-10">
+                <UploadFile />
+              </div>
+            </div>
+          </div>
         </div>
-     </section>
+      </div>
+    </div>
   )
 }
 
