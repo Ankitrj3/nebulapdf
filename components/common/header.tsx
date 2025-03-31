@@ -12,7 +12,7 @@ function Header() {
     const checkServerConnection = async () => {
       try {
         console.log('Checking server connection...');
-        const response = await fetch('http://localhost:8080/health', {
+        const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/health', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',

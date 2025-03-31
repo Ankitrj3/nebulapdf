@@ -58,7 +58,7 @@ export function UploadFile() {
     try {
       console.log('Sending summary request with URL:', url)
       
-      const res = await fetch('http://localhost:8080/public/pdf', {
+      const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/public/pdf', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ export function UploadFile() {
       const formData = new FormData()
       formData.append('file', file)
 
-      const response = await fetch('http://localhost:8080/api/upload/file', {
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/upload/file', {
         method: 'POST',
         body: formData,
         headers: {
